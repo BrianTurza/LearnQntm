@@ -54,3 +54,10 @@ body {
 .dropdown-menu {
   text-transform: capitalize;
 }
+pre {
+  border-radius: 8px;
+}
+.excersise {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
