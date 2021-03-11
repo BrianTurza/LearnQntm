@@ -30,8 +30,8 @@
 .CodeMirror {
   height: 70vh;
 }
-.nav-link {
-  text-trasnform: none;
+.button {
+  text-transform: none !important;
 }
   </style>
 </head>
@@ -113,7 +113,7 @@
     <!--================ Feature section end =================-->      
     
     <!--================ Offer section start =================-->      
-    <section class="section-margin">
+    <!--<section class="section-margin">
       <div class="container">
         <div class="section-intro pb-85px text-center">
           <h2 class="section-intro__title">Features We Offer</h2>
@@ -175,7 +175,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>-->
     <!--================ Offer section end =================-->      
 
     <!--================ Online IDE section start =================-->      
@@ -219,8 +219,8 @@ class Quantum:
       <div class="container">
         <div class="row align-items-center pt-xl-3 pb-xl-5">
           <div class="col-lg-6">
-            <div class="solution__img text-center text-lg-left mb-4 mb-lg-0">
-              <img class="img-fluid" src="images/home/solution.png" alt="">
+            <div class="solution__img text-center text-lg-center mb-4 mb-lg-0">
+              <img style="height: 30rem; margin-top: -6rem" class="img-fluid" src="images/quantum-computer.png" alt="">
             </div>
           </div>
           <div class="col-lg-6">

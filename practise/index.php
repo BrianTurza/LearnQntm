@@ -1,4 +1,5 @@
 <?php 
+require_once('../includes/connect.php');
 require_once('../common.php');
 
 if (!isset($_SESSION['username'])) {
@@ -19,7 +20,7 @@ if (isset($_GET['logout'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Starter</title>
+  <title>QuantumLearn</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../vendors/AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
@@ -40,103 +41,9 @@ if (isset($_GET['logout'])) {
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style-practise.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-<style>
-main {
-  height: 100%;
-  margin-top: 12%;
-}
-#calendar {
-    width: 200px;
-    margin: 0 auto;
-    font-size: 10px;
-}
-.fc-toolbar {
-    font-size: .9em;
-}
-.fc-toolbar h2 {
-    font-size: 12px;
-    white-space: normal !important;
-}
-/* click +2 more for popup */
-.fc-more-cell a {
-    display: block;
-    width: 85%;
-    margin: 1px auto 0 auto;
-    border-radius: 3px;
-    background: grey;
-    color: transparent;
-    overflow: hidden;
-    height: 4px;
-}
-.fc-more-popover {
-    width: 100px;
-}
-.fc-view-month .fc-event, .fc-view-agendaWeek .fc-event, .fc-content {
-    font-size: 0;
-    overflow: hidden;
-    height: 2px;
-}
-.fc-view-agendaWeek .fc-event-vert {
-    font-size: 0;
-    overflow: hidden;
-    width: 2px !important;
-}
-.fc-agenda-axis {
-    width: 20px !important;
-    font-size: .7em;
-}
-
-.fc-button-content {
-    padding: 0;
-}
-.sidebar-grid {
-  position: fixed !important;
-  margin-top: -7rem;
-}
-@media (max-width: 767px) {
-      .sidebar-grid {
-          position: relative !important;
-          margin-top: 2rem !important;
-      }
-      .card{
-        width: 300px !important;
-        max-width: 300px;
-      }
-      #calendar {
-        max-width: 300px !important;
-      }
-      .container-fluid {
-        margin-top: 7rem !important;
-      }
-
-  }
-@media (max-width: 991px) {
-      .sidebar-grid {
-          position: relative !important;
-      }
-      .card{
-        width: 350px !important;
-        max-width: 350px !important;
-      }
-      #calendar {
-        max-width: 400px !important;
-      }
-      .container-fluid {
-        margin-top: 7rem !important;
-      }
-
-  }
-  @media (min-width: 992px) {
-      .sidebar-grid {
-          height: calc(100% - 50px - 60px);
-          position: absolute;
-          right: 0;
-      }
-  }
-
-</style>
 </head>
 <body style="background: #f4f6f9" class="hold-transition sidebar-mini">
   <!-- Navbar -->
@@ -155,7 +62,37 @@ main {
    <br><br>
         <div class="row">
           <div style="min-height:170px" class="col-md-6">
-          <?php for($i = 0; $i < 5; $i++) : ?>
+<?php
+
+$query = "SELECT * FROM problems";
+
+$result = mysqli_query($db, $query);
+$i = 0;
+while  ($row =  mysqli_fetch_array($result)){
+  $i += 1;
+  $problem_cat = $row['problem_cat'];
+  $cat = array('Easy', 'Medium', 'Hard');
+  echo '
+  <div name="'.$cat[$problem_cat - 1].'" class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img style="height: 100%" src="../images/q-sample2.jpg" class="card-img" alt="...">
+    </div>
+    <div style="-ms-flex: 0 0 230px; flex: 0 0 230px;" class="col-md-6">
+      <div class="card-body">
+        <h3>'. $row['problem_title'].'</h3>
+        <p class="card-text">'.substr($row['problem_description'], 0, 100).'</p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        
+      </div>
+    </div><span style="margin-left: 80%; margin-top: -220px" class="card-text">Difficulty: '.str_repeat('<i style="color: red" class="fas fa-fire"></i> ', $i + 1).'</span>
+  </div>
+</div>
+  ';
+}
+mysqli_close($db);
+?>
+          <?php for($i = 0; $i < 4; $i++) : ?>
             <div class="card mb-3">
               <div class="row no-gutters">
                 <div class="col-md-4">

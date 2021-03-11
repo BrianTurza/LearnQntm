@@ -82,11 +82,9 @@ if (isset($_SESSION['username']) and !isset($_GET['topic_id'])) {
           <?php if (isset($_GET['lang'])) : ?>
             <a class="dropdown-item<?php echo ($_GET['lang'] == 'en' ? ' active' : '') ?>" href="?lang=en"><span class="flag-icon flag-icon-us"> </span>  English</a>
             <a class="dropdown-item<?php echo ($_GET['lang'] == 'sk' ? ' active' : '') ?>" href="?lang=sk"><span class="flag-icon flag-icon-sk"> </span>  Slovensky</a>
-            <a class="dropdown-item<?php echo ($_GET['lang'] == 'cz' ? ' active' : '') ?>" href="?lang=cz"><span class="flag-icon flag-icon-cz"> </span>  Česky</a>
           <?php else : ?>
             <a class="dropdown-item active" href="?lang=en"><span class="flag-icon flag-icon-us"></span>  English</a>
             <a class="dropdown-item" href="?lang=sk"><span class="flag-icon flag-icon-sk"></span>  Slovensky</a>
-            <a class="dropdown-item" href="?lang=cz"><span class="flag-icon flag-icon-cz"></span>  Česky</a>
           <?php endif ?>
           </div>
     </li>

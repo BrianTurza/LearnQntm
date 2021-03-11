@@ -1,92 +1,34 @@
 main {
-  height: 100%;
-  margin-top: 12%;
-}
-#calendar {
-    width: 200px;
-    margin: 0 auto;
-    font-size: 10px;
-}
-.fc-toolbar {
-    font-size: .9em;
-}
-.fc-toolbar h2 {
-    font-size: 12px;
-    white-space: normal !important;
-}
-/* click +2 more for popup */
-.fc-more-cell a {
-    display: block;
-    width: 85%;
-    margin: 1px auto 0 auto;
-    border-radius: 3px;
-    background: grey;
-    color: transparent;
-    overflow: hidden;
-    height: 4px;
-}
-.fc-more-popover {
-    width: 100px;
-}
-.fc-view-month .fc-event, .fc-view-agendaWeek .fc-event, .fc-content {
-    font-size: 0;
-    overflow: hidden;
-    height: 2px;
-}
-.fc-view-agendaWeek .fc-event-vert {
-    font-size: 0;
-    overflow: hidden;
-    width: 2px !important;
-}
-.fc-agenda-axis {
-    width: 20px !important;
-    font-size: .7em;
-}
+    height: 100%;
+    margin-top: 12%;
+  }
 
-.fc-button-content {
-    padding: 0;
-}
 .sidebar-grid {
-  position: fixed !important;
-  margin-top: -7rem;
+position: fixed !important;
+margin-top: -7rem;
+}
+.test {
+    color: #007bff !important;
+}
+.card-link {
+    font-size: 17px;
+}
+.chapter {
+    color: #3a414e;
 }
 @media (max-width: 767px) {
-      .sidebar-grid {
-          position: relative !important;
-          margin-top: 2rem !important;
-      }
-      .card{
-        width: 300px !important;
-        max-width: 300px;
-      }
-      #calendar {
-        max-width: 300px !important;
-      }
-      .container-fluid {
-        margin-top: 7rem !important;
-      }
+    .sidebar-grid {
+        position: relative !important;
+        margin-top: 4rem !important;
+    }
+    .card{
+      max-width: 300px;
+    }
+    #calendar {
+      max-width: 300px !important;
+    }
+    .container-fluid {
+      margin-top: 7rem !important;
+    }
 
-  }
-@media (max-width: 991px) {
-      .sidebar-grid {
-          position: relative !important;
-      }
-      .card{
-        width: 350px !important;
-        max-width: 350px !important;
-      }
-      #calendar {
-        max-width: 400px !important;
-      }
-      .container-fluid {
-        margin-top: 7rem !important;
-      }
-
-  }
-  @media (min-width: 992px) {
-      .sidebar-grid {
-          height: calc(100% - 50px - 60px);
-          position: absolute;
-          right: 0;
-      }
-  }
+}

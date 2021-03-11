@@ -153,7 +153,7 @@ h3, .h3 {
 /* global style end
 	============================================================================================ */
 /* header style start
-	============================================================================================ */
+============================================================================================ */
 .header_area {
   position: absolute;
   top: 0;
@@ -212,7 +212,7 @@ h3, .h3 {
   font-family: "Roboto", sans-serif;
   color: #fff;
   font-size: 14px;
-  text-transform: capitalize;
+  text-transform: none !important;
   font-weight: 700;
   display: inline-block;
 }
@@ -382,6 +382,10 @@ h3, .h3 {
   font-size: 12px;
 }
 
+.search-bar {
+  width: 20rem;
+}
+
 /* header style end
 	============================================================================================ */
 @media (max-width: 1619px) {
@@ -423,6 +427,10 @@ h3, .h3 {
   .home_banner_area .banner_inner .banner_content h2 {
     font-size: 36px;
     line-height: 45px;
+  }
+
+  .search-bar .form-control .form-control-navbar {
+    width: 11.2rem !important;
   }
 }
 @media (max-width: 991px) {
@@ -830,6 +838,10 @@ h3, .h3 {
 
   .banner_btn {
     margin-bottom: 20px;
+  }
+
+  .quantum-computer {
+    width: 16rem im !important;
   }
 }
 /* banner section start

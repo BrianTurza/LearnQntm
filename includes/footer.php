@@ -11,7 +11,7 @@
 					</ul>
 				</div>
 				<div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
-					<h4>Quick Links</h4>
+					<h4><?php echo $lang['FOOTER_QUICK-LINKS'] ?></h4>
 					<ul>
 						<li><a href="#">Terms of Service</a></li>
 						<li><a href="#">Privacy</a></li>
@@ -20,7 +20,7 @@
 					</ul>
 				</div>
 				<div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
-					<h4>Features</h4>
+					<h4><?php echo $lang['FOOTER_COMUNNITY'] ?></h4>
 					<ul>
 						<li><a href="#">Jobs</a></li>
 						<li><a href="#">Brand Assets</a></li>
@@ -29,17 +29,17 @@
 					</ul>
 				</div>
 				<div class="col-xl-2 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
-					<h4>Resources</h4>
+					<h4><?php echo $lang['FOOTER_RESOURCES'] ?></h4>
 					<ul>
 						<li><a href="#">Guides</a></li>
-						<li><a href="#">Research</a></li>
-						<li><a href="#">Experts</a></li>
-						<li><a href="#">Agencies</a></li>
+						<li><a href="#">Used literature and texts</a></li>
+						<li><a href="#">Used images</a></li>
+						<li><a href="#"></a></li>
 					</ul>
 				</div>
 				<div class="col-xl-4 col-md-8 mb-4 mb-xl-0 single-footer-widget">
-					<h4>Newsletter</h4>
-					<p>You can trust us. we only send promo offers,</p>
+					<h4><?php echo $lang['FOOTER_NEWSLETTER'] ?></h4>
+					<p></p>
 					<div class="form-wrap" id="mc_embed_signup">
 						<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
 						 method="get" class="form-inline">

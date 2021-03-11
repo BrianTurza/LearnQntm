@@ -35,6 +35,9 @@
 		font-size: 36px;
 		line-height: 45px;
 	}
+	.search-bar .form-control .form-control-navbar {
+		width: 11.2rem !important;
+	}
 }
 
 @media (max-width:991px){
@@ -375,5 +378,8 @@
 	}
 	.banner_btn{
 		margin-bottom: 20px;
+	}
+	.quantum-computer {
+		width: 16rem im !important;
 	}
 }

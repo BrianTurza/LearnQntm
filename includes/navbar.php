@@ -11,12 +11,30 @@
           </button>
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav justify-content-end">
-              <li class="nav-item active"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>"><?php echo $lang['NAV_HOME'] ?></a></li> 
-              <li class="nav-item"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>about/"><?php echo $lang['NAV_ABOUT'] ?></a></li> 
-              <li class="nav-item"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>learn/"><?php echo $lang['NAV_LEARN'] ?></a>
-            </ul>
+            <ul class="nav navbar-nav menu_nav<?php echo (!isset($_SESSION['username']) ? ' justify-content-end' : '') ?>">
 
+              <?php if (isset($_SESSION['username'])) : ?>
+                <li class="nav-item"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>practise/"><?php echo $lang['NAV_PRACTISE'] ?></a></li> 
+                <li class="nav-item"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>learn/"><?php echo $lang['NAV_LEARN'] ?></a>
+              <?php else : ?>
+                <li class="nav-item active"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>"><?php echo $lang['NAV_HOME'] ?></a></li> 
+                <li class="nav-item"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>#about"><?php echo $lang['NAV_ABOUT'] ?></a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>#features"><?php echo $lang['NAV_FEATURES'] ?></a></li>  
+                <li class="nav-item"><a class="nav-link" href="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>IDE/"><?php echo $lang['NAV_IDE'] ?></a></li> 
+              <?php endif ?>
+            </ul>
+            <?php if (isset($_SESSION['username'])) : ?>
+              <form action="<?php echo str_repeat("../", count(explode("/", $_SERVER['REQUEST_URI'])) - 3)?>search/" class="form-inline ml-3">
+                <div style="width: 18rem" class="input-group input-group-bg">
+                  <input class="search-bar form-control form-control-navbar" id="floatingInput" name="query" type="search" placeholder="Search" aria-label="Search">
+                  <div class="input-group-append">
+                    <button class="btn btn-navbar" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            <?php endif ?>
             <ul class="navbar-right">
               <li class="nav-item">
               <?php if (isset($_SESSION['username'])) : ?>
@@ -33,15 +51,13 @@
                     <?php if (isset($_GET['lang'])) : ?>
                       <a class="dropdown-item<?php echo ($_GET['lang'] == 'en' ? ' active' : '') ?>" href="?lang=en"><span class="flag-icon flag-icon-us"> </span>  English</a>
                       <a class="dropdown-item<?php echo ($_GET['lang'] == 'sk' ? ' active' : '') ?>" href="?lang=sk"><span class="flag-icon flag-icon-sk"> </span>  Slovensky</a>
-                      <a class="dropdown-item<?php echo ($_GET['lang'] == 'cz' ? ' active' : '') ?>" href="?lang=cz"><span class="flag-icon flag-icon-cz"> </span>  Česky</a>
                     <?php else : ?>
                       <a class="dropdown-item active" href="?lang=en"><span class="flag-icon flag-icon-us"></span>  English</a>
                       <a class="dropdown-item" href="?lang=sk"><span class="flag-icon flag-icon-sk"></span>  Slovensky</a>
-                      <a class="dropdown-item" href="?lang=cz"><span class="flag-icon flag-icon-cz"></span>  Česky</a>
                     <?php endif ?>
                     </div>
               </li>
-            </ul>  
+            </ul>   
 
           </div> 
         </div>

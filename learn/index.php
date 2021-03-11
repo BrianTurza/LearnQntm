@@ -45,14 +45,6 @@ $completed = FALSE;
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-<style>
-a {
-  color: #3a414e;
-}
-.test {
-  color: #007bff !important;
-}
-</style>
 </head>
 <body style="background: #f4f6f9" class="hold-transition sidebar-mini">
   <!-- Navbar -->
@@ -61,58 +53,89 @@ a {
 <div style="margin-left: 3%" class="container-fluid">
   
    <div class="col-md-10">
-      <div style="width: 100%" class="card card-primary">
+      <div style="width: 100%; min-height: 35rem" class="card card-primary">
         <div style="margin-left: 3%; margin-right: 3%">
             <br><h2><?php echo $lang['LEARN_TITLE'] ?></h2>
             <span style="float:right"><strong>Spend time</strong>: 20min</span><br>
             <hr>
-      <br>
+           <br>
             <div id="accordion">
               <div class="card">
                 <div class="card-header">
-                  <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                  <i class="fas fa-info-circle"></i></i> <?php echo $lang['LEARN_CURRIC_INTRO'] ?></a>
+                  <a class="card-link chapter" data-toggle="collapse" href="#collapse1">
+                  <i class="fas fa-info-circle"></i> <?php echo $lang['LEARN_CURRIC_INTRO'] ?></a>
                   <a href="intro/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>
                   <?php if ($completed) : ?>
                     <span style="float:right; color: green"><?php echo $lang['LEARN_COMPLETED'] ?></span> 
                   <?php endif ?>
                 </div>
-                <div id="collapseOne" class="collapse" data-parent="#accordion">
+                <div id="collapse1" class="collapse" data-parent="#accordion">
                   <div class="card-body">
                     <?php echo $lang['LEARN_DESCRIPTION_INTRO'] ?><br>
-                    <a href="intro/"><button style="float:right" class="btn btn-outline-primary">Countinue</button></a>
                   </div>
                 </div>
               </div>
             <div id="accordion">
               <div class="card">
                 <div class="card-header">
-                  <a class="card-link" data-toggle="collapse" href="#collapseTwo">
-                  <i class="fas fa-plus"></i> <?php echo $lang['LEARN_CURRIC_QUBIT'] ?></a>
+                  <a class="card-link chapter" data-toggle="collapse" href="#collapse2">
+                  <i class="fas fa-atom"></i> <?php echo $lang['LEARN_CURRIC_QUBIT'] ?></a>
+                  <a href="qubits/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>
                   <?php if ($completed) : ?>
                     <span style="float:right; color: green"><?php echo $lang['LEARN_COMPLETED'] ?></span> 
                   <?php endif ?>
                 </div>
-                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                <div id="collapse2" class="collapse" data-parent="#accordion">
                   <div class="card-body">
                     <?php echo $lang['LEARN_DESCRIPTION_QUBIT'] ?>
-                    <a href="intro/"><button style="float:right" class="btn btn-outline-primary">Countinue</button></a>
                   </div>
                 </div>
               </div>
             <div id="accordion">
               <div class="card">
                 <div class="card-header">
-                  <a class="card-link" data-toggle="collapse" href="#collapseThree">
-                  <i class="fas fa-laptop-code"></i></i> <?php echo $lang['LEARN_CURRIC_PROG'] ?></a>
+                  <a class="card-link chapter" data-toggle="collapse" href="#collapse3">
+                  <i class="fas fa-laptop-code"></i> <?php echo $lang['LEARN_CURRIC_PROG'] ?></a>
+                  <a href="programming/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>
                   <?php if ($completed) : ?>
                     <span style="float:right; color: green"><?php echo $lang['LEARN_COMPLETED'] ?></span> 
                   <?php endif ?>
                 </div>
-                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                <div id="collapse3" class="collapse" data-parent="#accordion">
                   <div class="card-body">
                     <?php echo $lang['LEARN_DESCRIPTION_PROG'] ?>
-                    <button style="float:right" class="btn btn-outline-primary">Countinue</button>
+                  </div>
+                </div>
+              </div>
+              <div id="accordion">
+              <div class="card">
+                <div class="card-header">
+                  <a class="card-link chapter" data-toggle="collapse" href="#collapse4">
+                  <i class="fas fa-project-diagram"></i> <?php echo $lang['LEARN_CURRIC_ALGO'] ?></a>
+                  <a href="quantum-algorithms/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>
+                  <?php if ($completed) : ?>
+                    <span style="float:right; color: green"><?php echo $lang['LEARN_COMPLETED'] ?></span> 
+                  <?php endif ?>
+                </div>
+                <div id="collapse4" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                    <?php echo $lang['LEARN_DESCRIPTION_ALGO'] ?>
+                  </div>
+                </div>
+              </div>
+              <div id="accordion">
+              <div class="card">
+                <div class="card-header">
+                  <a class="card-link chapter" data-toggle="collapse" href="#collapse5">
+                  <i class="fas fa-rocket"></i> <?php echo $lang['LEARN_CURRIC_FUTURE'] ?></a>
+                  <a href="future/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>
+                  <?php if ($completed) : ?>
+                    <span style="float:right; color: green"><?php echo $lang['LEARN_COMPLETED'] ?></span> 
+                  <?php endif ?>
+                </div>
+                <div id="collapse5" class="collapse" data-parent="#accordion">
+                  <div class="card-body">
+                    <?php echo $lang['LEARN_DESCRIPTION_ALGO'] ?>
                   </div>
                 </div>
               </div>
@@ -123,8 +146,11 @@ a {
       </div>
     </div>
 </div>
-</main><br><br>
-<?php require_once('../includes/footer.php') ?>
+</main>
+
+
+<p class="mt-5 mb-3 text-muted text-center">©LearnQuantum <?php echo date("Y") ?></p>
+
 <!-- REQUIRED SCRIPTS -->
 
 <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>

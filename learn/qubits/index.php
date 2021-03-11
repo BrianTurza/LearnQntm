@@ -11,7 +11,7 @@ if (isset($_GET['logout'])) {
   header("location: ../../login");
 }
 $completed = FALSE;
-$sec = 0;
+$sec = 1;
 if (isset($_GET['section'])) { $sec = $_GET['section']; }
 ?>
 <!DOCTYPE html>
@@ -62,7 +62,6 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
    <div class="col-md-10">
     <div class="btn-toolbar mb-3 d-flex justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
       <div style="background-color: white" class="btn-group me-2" role="group" aria-label="First group">
-      <a href="?section=0" class="btn btn-outline-secondary"><i class="fas fa-info-circle"></i></a>
         <a href="?section=1" class="btn btn-outline-secondary"><i class="fas fa-book"></i></a>
         <a href="?section=2" class="btn btn-outline-secondary"><i class="fas fa-question"></i></a>
         <a href="?section=3" class="btn btn-outline-secondary"><i class="fas fa-book"></i></a>
@@ -72,34 +71,16 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
       <div style="width: 100%" class="card card-primary">
         <div style="margin-left: 3%; margin-right: 3%">
             <br>
-            <h2> <?php echo $lang['LEARN_CURRIC_INTRO'] ?></h2>
+            <h2> <?php echo $lang['LEARN_CURRIC_QUBIT'] ?></h2>
             <hr><br>
-            <?php if ($sec == 0 or $sec == 1 or $sec == 3) : ?>
+            <?php if ($sec == 1 or $sec == 3) : ?>
               <div class="col-9">
             <?php endif ?>
-            <?php if ($sec == 0 or !isset($sec)) : ?>
-              <?php echo $lang['LEARN_INTRO_TEXT'] ?>
-              <br><br>
-              <h3><?php echo $lang['LEARN_INTRO_TITLE_PRE'] ?></h3>
-                <p style="white-space: pre-wrap;">
-<?php echo $lang['LEARN_INTRO_TEXT_PRE'] ?>
-                </p>
-                <br>
-            <?php endif ?>
               <?php if ($sec == 1) : ?>
-                <h3><?php echo $lang['LEARN_INTRO_TITLE_EXPL'] ?></h3>
+                <h3><?php echo $lang['LEARN_QUBITS_TITLE'] ?></h3>
                 <p style="white-space: pre-wrap;">
-<?php echo $lang['LEARN_INTRO_TEXT_EXPL'] ?>
+<?php echo $lang['LEARN_QUBITS_TEXT'] ?>
                 </p>
-                <br>
-                <div class="col-9">
-                <img class="quantum-computer" src="https://images.newscientist.com/wp-content/uploads/2020/08/26152459/26-aug_cosmic-rays-quantum-computers.jpg" alt="quantum computer" style="height: 30rem; border-radius: 2%"><br>
-                <p class="text-center"><em>Source: IBM.com</em></p>
-                </div>
-<h3><?php echo $lang['LEARN_INTRO_TITLE_HISTORY'] ?></h3>
-<p style="white-space: pre-wrap;">
-<?php echo $lang['LEARN_INTRO_TEXT_HISTORY'] ?>
-</p>
               <?php elseif ($sec == 2) : ?>
                 <form action="" method="POST">
                   <?php 
@@ -161,7 +142,6 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
 <!-- fullCalendar 2.2.5 -->
 <script src="../../vendors/AdminLTE-master/plugins/moment/moment.min.js"></script>
 
-<script src='../../vendors/fullcalendar/lib/main.js'></script>
 <script src="../../vendors/prism.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
