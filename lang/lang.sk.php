@@ -7,7 +7,7 @@ Language: Slovak
 
 $lang = array();
 
-$lang['PAGE_TITLE'] = 'LearnQuantum';
+$lang['PAGE_TITLE'] = 'LearnQntm';
 $lang['HEADER_TITLE'] = 'My website header title';
 $lang['SITE_NAME'] = 'My Website';
 $lang['SLOGAN'] = 'My slogan here';
@@ -77,14 +77,57 @@ $lang['LEARN_DESCRIPTION_ALGO'] = 'Tak ako na normálnych počítačoch exitujú
 $lang['LEARN_CURRIC_FUTURE'] = 'Využitie v budúcnosti';
 $lang['LEARN_DESCRIPTION_ALGO'] = 'Ake je využitie v buducnosti pre kvantove počítače ?';
 
-//INTRO
+
+//----------- Intro ---------------
+// Section 0
+$lang['LEARN_INTRO_TEXT'] = 'Welcome to this course about Quantum Computing. Through this course you will learn some basic principles taken from quantum mechanics';
+
+$lang['LEARN_INTRO_TITLE_PRE'] = 'Prerequisites';
+$lang['LEARN_INTRO_TEXT_PRE'] = 'The aim of this course is to teach about Quantum Computing, without in depth knowledge of quantum mechanincs. 
+With that said, some basic math knowledge (such as: linear algebra, probability,...) is recommended. 
+If you want to learn the math, here are some good resources: <a target="_blank" rel="noopener noreferrer" href="https://www.khanacademy.org/math/linear-algebra">Linear Algebra</a>, <a target="_blank" rel="noopener noreferrer" href="https://www.khanacademy.org/math/algebra2/x2ec2f6f830c9fb89:complex">Complex numbers</a>
+';
+
+//Section 1
 $lang['LEARN_INTRO_TITLE_EXPL'] = 'Čo je Quantum Computing';
 $lang['LEARN_INTRO_TEXT_EXPL'] = 'Quantum computing is a computing paradigm that uses quantum mechanical properties
 of matter in order to preform calculations calculations.
 Je to
 ';
 
-$lang['LEARN_INTRO_TITLE_CLASSIC'] = 'Classic Bits';
+$lang['LEARN_INTRO_TITLE_HISTORY'] = 'Trochu Historie';
+$lang['LEARN_INTRO_TEXT_HISTORY'] = 'Quantum computers still are still not powerful enough / dont have enough qubits to break RSA encryption or be fully commercial, the theory behind it was created several deacades ago.
+
+Quantum mechanics was developed in the begenning of the 20th century, The begenning of quantum computing was struck by Richard Faynman inthe begenning of 1980s.
+';
+
+$lang['LEARN_INTRO_TEXT_EXPL2'] = 'As you can see a quantum computer is much more harder to build ';
+$lang['LEARN_INTRO_TITLE_CLASSIC'] = 'Clasické Bity';
+$lang['LEARN_INTRO_TEXT_CLASSIC'] = '
+Before we go to the details of qubits, lets look on how normal bits work. As you may already know, information can be stored and processed as a series of 0s and 1s. This are called bits or binary digits.';
+
+//Qubits
+$lang['LEARN_QUBITS_TITLE'] = 'Čo je to qubit?';
+$lang['LEARN_QUBITS_TEXT'] = 'Qubit is the unit of Quantum Information. In bits, you can store 0s and 1s. A qubit on the other hand can all combinations at once.  
+qubit is a two-level quantum system where the two basis qubit states are usually written as \(∣0⟩\) and \(∣1⟩\). Qubit can be in state \(∣0⟩\), \(∣1⟩\) or combination of both states at the same time. 
+This phenomen from quantum mechanics is called superposition.
+
+<img style="width: 60%" src="../../images/learn/qubit.webp" alt="">
+A generic qubit is in a superposition:
+<span style="color:black">\[
+    ψ〉= α|0〉+β|1〉
+\]</span>
+
+\[
+    |α|^2+|β|^2=1
+\]
+\[
+     |0\rangle = \begin{bmatrix} 1 \\\ 0 \end{bmatrix} \, \, \, \, |1\rangle =\begin{bmatrix} 0 \\\ 1 \end{bmatrix}.
+\]
+
+';
+
+$lang['LEARN_INTRO_TITLE_CLASSIC'] = 'Klasický Bit';
 $lang['LEARN_INTRO_TEXT_CLASSIC'] = '
 Klasicky bit, skratene bit, predstavuje zAkladnd jednotku informacie. Nado-
 bida jednu z diskrétnych hodndét {0,1}. Ak spojime 3 bity, méZeme v nich

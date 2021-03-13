@@ -7,7 +7,7 @@ Language: English
 
 $lang = array();
 
-$lang['PAGE_TITLE'] = 'LearnQuantum';
+$lang['PAGE_TITLE'] = 'LearnQntm';
 $lang['HEADER_TITLE'] = 'My website header title';
 $lang['SITE_NAME'] = 'My Website';
 $lang['SLOGAN'] = 'My slogan here';
@@ -119,6 +119,10 @@ A generic qubit is in a superposition:
 \[
     |α|^2+|β|^2=1
 \]
+\[
+     |0\rangle = \begin{bmatrix} 1 \\\ 0 \end{bmatrix} \, \, \, \, |1\rangle =\begin{bmatrix} 0 \\\ 1 \end{bmatrix}.
+\]
+
 ';
 $lang['LEARN_QUBITS_TITLE_STATES'] = 'Quantum States';
 $lang['LEARN_QUBITS_TEXT_STATES'] = 'As mentioned before, qubits act diffrently than normal bits. They have certian properties from world of quantum mechanics. These';

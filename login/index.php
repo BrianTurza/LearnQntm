@@ -42,7 +42,7 @@ if (isset($_POST['login_user'])) {
           array_push($errors, "Wrong password");
         }
     } else {
-      array_push($errors, "Wrong username or password combination");
+      array_push($errors, "Wrong username and password combination");
     }
   }
 }
@@ -61,7 +61,7 @@ if (isset($_SESSION['username']) and !isset($_GET['topic_id'])) {
 
   <link rel="stylesheet" href="../css/style.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../vendors/AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
@@ -94,13 +94,25 @@ if (isset($_SESSION['username']) and !isset($_GET['topic_id'])) {
 
   <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html">Learn<b>Quantum</b></a>
+    <a href="../../index2.html">Learn<b>Qntm</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg"><?php echo $lang['SIGN_IN_BOX_MESSAGE'] ?></p>
-
+      <?php  if (count($errors) > 0) : ?>
+          <?php foreach ($errors as $error) : ?>
+            <div class="alert alert-danger" role="alert">
+            <?php echo $error ?>
+            </div>
+          <?php endforeach ?>
+      <?php  endif ?>
+      
+      <?php  if (count($errors) == 0 and isset($_SESSION['verified_msg'])) : ?>
+        <div class="alert alert-success" role="alert">
+        <?php echo $_SESSION['verified_msg'] ?>
+        </div>
+	    <?php  endif ?>
       <form action="" method="post">
         <div class="input-group mb-3">
           <input name="username" type="text" class="form-control" placeholder="<?php echo $lang['SIGN_USER'] ?>" required>

@@ -76,12 +76,12 @@ while  ($row =  mysqli_fetch_array($result)){
   <div name="'.$cat[$problem_cat - 1].'" class="card mb-3">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img style="height: 100%" src="../images/q-sample2.jpg" class="card-img" alt="...">
+      <img style="min-height: 100%" src="../images/q-sample2.jpg" class="card-img" alt="...">
     </div>
     <div style="-ms-flex: 0 0 230px; flex: 0 0 230px;" class="col-md-6">
       <div class="card-body">
         <h3>'. $row['problem_title'].'</h3>
-        <p class="card-text">'.substr($row['problem_description'], 0, 100).'</p>
+        <p class="card-text">'.substr($row['problem_description'], 0, 128).'...</p>
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         
       </div>

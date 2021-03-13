@@ -1,5 +1,6 @@
 from flask import Flask
 from io import StringIO
+import requests
 
 app = Flask(__name__)
 
@@ -7,7 +8,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@contextlib.contextmanager
+#@contextlib.contextmanager
 def stdoutIO(stdout=None):
     old = sys.stdout
     if stdout is None:

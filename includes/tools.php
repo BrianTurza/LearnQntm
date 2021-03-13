@@ -1,6 +1,7 @@
 <?php
 
 function quiz($title, $options, $anwser, $selected) {
+  global $lang;
   $count = 0;
     echo '
 <div class="container-q mt-sm-5 my-1 mx-auto" style="border: 1px solid #ccc">
@@ -16,7 +17,7 @@ function quiz($title, $options, $anwser, $selected) {
         echo '<label style="font-weight: 400" class="options">'.$q.'<input value="'.$count.'" style="display: none" type="radio" name="radio" '.$check.'><span class="checkmark-q"></span></label>';
     } echo'</div>
         <div class="d-flex align-items-center pt-3">
-          <div class="mx-auto mr-sm-5"> <button name="submit" type="submit" class="btn btn-success-q">Check</button> </div>
+          <div class="mx-auto mr-sm-5"> <button name="submit" type="submit" class="btn btn-success-q">'.$lang['LEARN_SUBMIT'].'</button> </div>
         </div>
       </div>';
       if ($selected != '' and $anwser == $options[$selected - 1]) {

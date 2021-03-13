@@ -1,4 +1,6 @@
 <?php
+$address = 'https://learnqntm.com/';
+
 session_start();
 header('Cache-control: private'); // IE 6 FIX
 

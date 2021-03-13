@@ -11,8 +11,6 @@ if (isset($_POST['reg_user'])) {
   $password_2 = mysqli_real_escape_string($db, $_POST['confirm_password']);
   $hash = ( sha1( rand(1,1000) * rand(1,1000) + 13) );
 
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
   if (empty($username)) { array_push($errors, "Username is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
@@ -24,7 +22,7 @@ if (isset($_POST['reg_user'])) {
   $user_check_query = "SELECT * FROM users WHERE user_name='$username' OR user_email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
-  if ($user) { // if user exists
+  if ($user) { 
     if ($user['username'] === $username) {
       array_push($errors, "Username already exists");
     }
@@ -45,21 +43,20 @@ if (isset($_POST['reg_user'])) {
   	$query = "INSERT INTO users (user_name, user_email, user_password, user_level, user_date, user_hash , user_verified) VALUES('$username', '$email', '$password', '$user_type', '$time', '$hash', 0)";
     mysqli_query($db, $query);
 
-    /*
     $msg = "Thanks for registration, activation link has been sent to $email. Please check your emailbox.";
 
-    $from = "noreply@pulzar.org";
+    $from = "noreply@learnqntm.com";
     $to = $email;
-    $subject = "Account verification ( pulzar.org )";
-    $message = "Hello $username,\nthank you for your registration. To activate your account please click on this link: https://pulzar.org/web/user/verify.php?email=$email&hash=$hash\n (If the link isnt working, copy and paste the url).
-    If it wasnt you who registered this email, ignore it and delete it.";
+    $subject = "Account verification ( learnqntm.com )";
+    $message = "Hello $username,\nthanks for your registration. In order to activate your account please click on this link here: https://learnqntm.com/register/verify.php?email=$email&hash=$hash\n (If the link isnt working, copy and paste the url).
+    If it wasn't you who registered this email, you can ignore it and delete it.";
     $headers = "From:" . $from;
     $mail = mail($to, $subject, $message, $headers);
     if ($mail == TRUE) {
       $msg = "An email has been sent to $email, check your mailbox.";
     } else {
         array_push($errors, "Error. Please try again later.");
-    }*/
+    }
   }
 }
 
@@ -74,7 +71,7 @@ if (isset($_POST['reg_user'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../vendors/AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
@@ -104,11 +101,12 @@ if (isset($_POST['reg_user'])) {
     </ul> 
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html">Learn<b>Quantum</b></a>
+    <a href="../../index2.html">Learn<b>Qntm</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
+     <?php echo $msg ?>
       <p class="login-box-msg"><?php echo $lang['SIGN_UP_BOX_MESSAGE'] ?></p>
       <?php  if (count($errors) > 0) : ?>
         <?php foreach ($errors as $error) : ?>
