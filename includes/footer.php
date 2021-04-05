@@ -56,7 +56,7 @@
 			</div>
 			<div class="footer-bottom row align-items-center text-center text-lg-left">
 				<p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-&copy; LearnQuantum <script>document.write(new Date().getFullYear());</script>
+&copy; LearnQNTM <script>document.write(new Date().getFullYear());</script>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 				<div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
 					<a href="#"><i class="fab fa-github"></i></a>

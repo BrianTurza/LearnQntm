@@ -1,3 +1,4 @@
+<?php $address = 'https://learnqntm.com/' ?>
 <header style="background-color: #3827a9" class="header_area" >
     <div  class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -18,15 +19,14 @@
                 <li class="nav-item"><a class="nav-link" href="<?php echo $address ?>learn/"><?php echo $lang['NAV_LEARN'] ?></a>
               <?php else : ?>
                 <li class="nav-item active"><a class="nav-link" href="<?php echo $address ?>"><?php echo $lang['NAV_HOME'] ?></a></li> 
-                <li class="nav-item"><a class="nav-link" href="<?php echo $address ?>#about"><?php echo $lang['NAV_ABOUT'] ?></a></li>
-                <li class="nav-item"><a class="nav-link" href="<?php echo $address ?>#features"><?php echo $lang['NAV_FEATURES'] ?></a></li>  
+                <li class="nav-item"><a class="nav-link" href="#features"><?php echo $lang['NAV_FEATURES'] ?></a></li>  
                 <li class="nav-item"><a class="nav-link" href="<?php echo $address ?>ide/"><?php echo $lang['NAV_IDE'] ?></a></li> 
               <?php endif ?>
             </ul>
             <?php if (isset($_SESSION['username'])) : ?>
               <form action="<?php echo $address ?>search/" class="form-inline ml-3">
                 <div style="width: 18rem" class="input-group input-group-bg">
-                  <input class="search-bar form-control form-control-navbar" id="floatingInput" name="query" type="search" placeholder="Search" aria-label="Search">
+                  <input class="search-bar form-control form-control-navbar" id="floatingInput" name="query" type="search" placeholder="<?php echo $lang['SEARCH'] ?>" aria-label="Search">
                   <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
                       <i class="fas fa-search"></i>
@@ -38,7 +38,7 @@
             <ul class="navbar-right">
               <li class="nav-item">
               <?php if (isset($_SESSION['username'])) : ?>
-                  <a href="<?php echo $address ?>problems/"><button class="button button-header bg"><i class="fas fa-user"></i> <?php echo $lang['NAV_PROFILE'] ?></button></a>
+                  <a href="<?php echo $address ?>profile/"><button class="button button-header bg"><i class="fas fa-user"></i> <?php echo $lang['NAV_PROFILE'] ?></button></a>
               <?php elseif (!isset($_SESSION['username'])) : ?>
                   <a href="login/"><button class="button button-header bg"><i class="fas fa-user"></i> <?php echo $lang['NAV_SIGN_IN'] ?></button></a>
               <?php endif ?>

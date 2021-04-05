@@ -20,34 +20,30 @@
     <link rel="stylesheet" href=
 "https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
  
-    <style type="text/css">
-        .terminal,
-        span,
-        .cmd,
-        div {
-            --color: rgba(0, 128, 0, 0.99);
-        }
- 
-        .terminal,
-        span {
-            --size: 1.4;
-        }
+<style type="text/css">
+.terminal,span, .cmd, div {
+    --color: rgba(0, 128, 0, 0.99);
+}
+.terminal,
+span {
+    --size: 1.4;
+}
     </style>
 </head>
  
 <body>
-    <script>
+<script>
 var term = $('body').terminal({
-            help: function () {
-                this.echo('iam - iam command and '
-                + 'pass your name as argument\n'
-                + 'founder to know the founder');
-            },
+    help: function () {
+        this.echo('iam - iam command and '
+        + 'pass your name as argument\n'
+        + 'founder to know the founder');
+    },
 
-        }, {
-            greetings: 'Python 3.7 REPL'
-        });
-    </script>
+}, {
+    greetings: 'Python 3.7 REPL'
+});
+</script>
 </body>
  
 </html>

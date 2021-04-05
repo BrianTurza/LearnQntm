@@ -50,6 +50,11 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link rel="stylesheet" href="../../css/tools.css">
+<style>
+body {
+  color: #525252 !important;
+}
+</style>
 </head>
 <body style="background: #f4f6f9" class="hold-transition sidebar-mini">
   <!-- Navbar -->
@@ -64,8 +69,9 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
       <div style="background-color: white" class="btn-group me-2" role="group" aria-label="First group">
         <a href="?section=1" class="btn btn-outline-secondary"><i class="fas fa-book"></i></a>
         <a href="?section=2" class="btn btn-outline-secondary"><i class="fas fa-question"></i></a>
-        <a href="?section=3" class="btn btn-outline-secondary"><i class="fas fa-book"></i></a>
-        <a href="?section=4" class="btn btn-outline-secondary"><i class="fas fa-terminal"></i></a>
+        <a href="?section=3" class="btn btn-outline-secondary"><i class="fas fa-question"></i></a>
+        <a href="?section=4" class="btn btn-outline-secondary"><i class="fas fa-book"></i></a>
+        <a href="?section=4" class="btn btn-outline-secondary"><i class="fas fa-book"></i></a>
       </div>
     </div>
       <div style="width: 100%" class="card card-primary">
@@ -86,27 +92,24 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
                   <?php 
                   include_once('../../includes/tools.php');
                   if (isset($_POST['radio'])) {
-                    $ans = quiz('What is quibit ?', array('Basic information quantum computers', 'pankake', 'Classical computer'), 'Basic information quantum computers',  $_POST['radio']);
+                    $ans = quiz($lang['LEARN_QUBITS_Q1'], array($lang['LEARN_QUBITS_Q1_A'], $lang['LEARN_QUBITS_Q1_B'], $lang['LEARN_QUBITS_Q1_C']), $lang['LEARN_QUBITS_Q1_B'],  $_POST['radio']);
                   } else {
-                    $ans = quiz('What is quibit ?', array('Basic information quantum computers', 'pankake', 'Classical computer'), 'Basic information quantum computers', '');
+                    $ans = quiz($lang['LEARN_QUBITS_Q1'], array($lang['LEARN_QUBITS_Q1_A'], $lang['LEARN_QUBITS_Q1_B'], $lang['LEARN_QUBITS_Q1_C']), $lang['LEARN_QUBITS_Q1_B'], '');
                   }
                   ?>
                 </form>
 
               <?php elseif ($sec == 3) : ?>
 
-                <h3><?php echo $lang['LEARN_INTRO_TITLE_CLASSIC'] ?></h3>
+                <h3></h3>
                 <p style="white-space: pre-wrap;">
-                  <?php echo $lang['LEARN_INTRO_TEXT_CLASSIC'] ?>
                 </p>
               
               <?php elseif ($sec == 4) : ?>
 
-                <h2> <?php echo $lang['LEARN_CURRIC_INTRO'] ?></h2>
-                <hr><br>
-                <h3><?php echo $lang['LEARN_INTRO_TITLE_CLASSIC'] ?></h3>
+                <h3><?php echo $lang['LEARN_QUBITS_TITLE_CIRCUIT'] ?></h3>
                 <p style="white-space: pre-wrap;">
-                  <?php echo $lang['LEARN_INTRO_TEXT_CLASSIC'] ?>
+                  <?php echo $lang['LEARN_QUBITS_TEXT_CIRCUIT'] ?>
                 </p>
               
               <?php endif ?>           

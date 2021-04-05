@@ -1,6 +1,8 @@
 <?php 
 require_once('../includes/connect.php');
 require_once('../common.php');
+require_once('../includes/tools.php');
+
 
 if (!isset($_SESSION['username'])) {
   $_SESSION['msg'] = "You must log in first";
@@ -52,11 +54,11 @@ if (isset($_GET['logout'])) {
 <div style="margin-left: 3%" class="container-fluid">
   <div style="margin-top: -3%">
    <h2><?php echo $lang['PRACTISE_TITLE'] ?></h2>
-        <select>
-          <option selected data-display="Difficulty"></option>
-          <option value="1">Easy</option>
-          <option value="2">Medium</option>
-          <option value="3">Hard</option>
+        <select id='select_difficulty'>
+          <option value="0" selected="true"><?php echo $lang['PRACTISE_DIFFICULTY'] ?></option>
+          <option value="1"><?php echo $lang['PRACTISE_DIFFICULTY_EASY'] ?></option>
+          <option value="2"><?php echo $lang['PRACTISE_DIFFICULTY_MEDIUM'] ?></option>
+          <option value="3"><?php echo $lang['PRACTISE_DIFFICULTY_HARD'] ?></option>
         </select><br>
   </div>
    <br><br>
@@ -73,48 +75,32 @@ while  ($row =  mysqli_fetch_array($result)){
   $problem_cat = $row['problem_cat'];
   $cat = array('Easy', 'Medium', 'Hard');
   echo '
-  <div name="'.$cat[$problem_cat - 1].'" class="card mb-3">
+  <div id="'.$cat[$problem_cat - 1].'" class="card mb-3">
   <div class="row no-gutters">
     <div class="col-md-4">
       <img style="min-height: 100%" src="../images/q-sample2.jpg" class="card-img" alt="...">
     </div>
     <div style="-ms-flex: 0 0 230px; flex: 0 0 230px;" class="col-md-6">
       <div class="card-body">
-        <h3>'. $row['problem_title'].'</h3>
+        <a href="problem/?id='.$row['problem_id'].'"><h3>'. $row['problem_title'].'</h3></a>
         <p class="card-text">'.substr($row['problem_description'], 0, 128).'...</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <p class="card-text"><small class="text-muted">Created: '.time_elapsed_string($row['problem_date']).'</small></p>
         
       </div>
-    </div><span style="margin-left: 80%; margin-top: -220px" class="card-text">Difficulty: '.str_repeat('<i style="color: red" class="fas fa-fire"></i> ', $i + 1).'</span>
+    </div><span style="margin-left: 80%; margin-top: -220px" class="card-text">'.$lang['PRACTISE_DIFFICULTY'].': '.str_repeat('<i style="color: red" class="fas fa-fire"></i> ', $i + 1).'</span>
   </div>
 </div>
   ';
 }
 mysqli_close($db);
 ?>
-          <?php for($i = 0; $i < 4; $i++) : ?>
-            <div class="card mb-3">
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                  <img style="min-height: 100%" src="../images/q-sample2.jpg" class="card-img" alt="...">
-                </div>
-                <div style="-ms-flex: 0 0 230px; flex: 0 0 230px;" class="col-md-6">
-                  <div class="card-body">
-                    <h3>Qubit power series</h3>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    
-                  </div>
-                </div><span style="margin-left: 80%; margin-top: -220px" class="card-text">Difficulty: <?php echo str_repeat('<i style="color: red" class="fas fa-fire"></i> ', $i + 1)?></span>
-              </div>
-            </div>
-          <?php endfor ?>
           </div>
           <div class="col-md-4 sidebar-grid">
-            <div style="height:100vh; width: 480px" class="card card-primary">
+          <a href="index.php?logout='1'" style="margin-left: 75%; color:#3a414e"><i class="fas fa-sign-out-alt" style="font-size: 16px;"></i> Sign out</a>
+            <div style="height:100vh; width: 480px; margin-top: 5%" class="card card-primary">
                 <div style="width: 480px" id="calendar"></div>
                 <br>
-                <h2 style="margin-left: 5%">New events</h2>
+                <h2 style="margin-left: 5%"><?php echo $lang['EVENTS']?></h2>
                 </div>
             </div>
           </div>
@@ -130,12 +116,6 @@ mysqli_close($db);
 
 <script src="../vendors/nice-select/jquery.nice-select.min.js"></script>
 
-<script>
-  $(document).ready(function(){
-    $('select').niceSelect();
-  });
-</script>
-
 <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
 
 <!-- AdminLTE App -->
@@ -148,6 +128,44 @@ mysqli_close($db);
 
 <script src='../vendors/fullcalendar/lib/main.js'></script>
 <script>
+$(document).ready(function(){
+  $('select').niceSelect();
+});
+// Select difficulty
+$(document).ready(function(){
+    $('#select_difficulty').on('change', function() {
+
+      if ( this.value == '0' ) {
+        $("#Easy").show();
+        $("#Medium").show();
+        $("#Hard").show();
+      }
+      
+      if ( this.value == '1')
+      {
+        $("#Easy").show();
+        $("#Medium").hide();
+        $("#Hard").hide();
+      }
+      
+       //If yellow is selected, show yellow, hide red and blue.
+      if ( this.value == '2')
+      {
+        $("#Easy").hide();
+        $("#Medium").show();
+        $("#Hard").hide();
+      }
+      
+      //If blue is selected, show blue hide red and yellow.
+      if ( this.value == '3')
+      {
+        $("#Easy").hide();
+        $("#Medium").hide();
+        $("#Hard").show();
+      }
+      
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');

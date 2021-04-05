@@ -12,10 +12,10 @@ if (isset($_POST['login_user'])) {
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
   if (empty($username)) {
-  	array_push($errors, "Username is required");
+  	array_push($errors, $lang['SIGN_IN_ERROR_USERNAME_REQ']);
   }
   if (empty($password)) {
-  	array_push($errors, "Password is required");
+  	array_push($errors, $lang['SIGN_IN_ERROR_PASS_REQ']);
   }
 
   if (count($errors) == 0) {
@@ -29,24 +29,28 @@ if (isset($_POST['login_user'])) {
             $_SESSION['user_email'] = $result['user_email'];
             $_SESSION['username'] = $username;
             $_SESSION['user_type'] = $result['user_level'];
-            $_SESSION['success'] = "You are now logged in";
+            $_SESSION['success'] = $lang['SIGN_IN_MESSAGE_SUCCESS'];
             $location = $_GET['location'];
-            if (isset($_GET['topic_id'])) {
+            /*if (isset($_GET['topic_id'])) {
               header('location: '.$address.'web/forum/topic.php?id='.$topic_id);
               exit();
-            } else {
+            }*/
+            if ($result['user_verified'] == 1) {
               header('location: ../practise');
               exit();
             }
+            elseif ($result['user_verified'] == 0) {
+              array_push($errors, $lang['SIGN_IN_ERROR_UNVERIFIED']);
+            }
         } else {
-          array_push($errors, "Wrong password");
+          array_push($errors, $lang['SIGN_IN_ERROR_PASS']);
         }
     } else {
-      array_push($errors, "Wrong username and password combination");
+      array_push($errors, $lang['SIGN_IN_BOX_user_OR_PASS']);
     }
   }
 }
-if (isset($_SESSION['username']) and !isset($_GET['topic_id'])) {
+if (isset($_SESSION['username']) and $result['user_verified'] == 1) {
   header('location: ../practise');
 }
 ?>
@@ -94,7 +98,7 @@ if (isset($_SESSION['username']) and !isset($_GET['topic_id'])) {
 
   <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html">Learn<b>Qntm</b></a>
+    <a href="../../index2.html">Learn<b>QNTM</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -110,7 +114,10 @@ if (isset($_SESSION['username']) and !isset($_GET['topic_id'])) {
       
       <?php  if (count($errors) == 0 and isset($_SESSION['verified_msg'])) : ?>
         <div class="alert alert-success" role="alert">
-        <?php echo $_SESSION['verified_msg'] ?>
+        <?php
+        echo $_SESSION['verified_msg'];
+        unset($_SESSION['verified_msg']);
+        ?>
         </div>
 	    <?php  endif ?>
       <form action="" method="post">
@@ -156,14 +163,14 @@ if (isset($_SESSION['username']) and !isset($_GET['topic_id'])) {
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="../forgot_password/"><?php echo $lang['SIGN_FORGOT'] ?></a>
+        <a href="../forgot/"><?php echo $lang['SIGN_FORGOT'] ?></a>
       </p>
       <p class="mb-0">
         <a href="../register/" class="text-center"><?php echo $lang['SIGN_IN_REGISTER_LINK'] ?></a>
       </p>
     </div>
     <!-- /.login-card-body -->
-  </div><p align="center" class="mt-5 mb-3 text-muted">©LearnQuantum <script>document.write(new Date().getFullYear());</script> </p>
+  </div><p align="center" class="mt-5 mb-3 text-muted">©LearnQNTM <script>document.write(new Date().getFullYear());</script> </p>
 </div>
 <!-- /.login-box -->
 </div>

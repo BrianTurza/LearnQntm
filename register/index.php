@@ -11,11 +11,11 @@ if (isset($_POST['reg_user'])) {
   $password_2 = mysqli_real_escape_string($db, $_POST['confirm_password']);
   $hash = ( sha1( rand(1,1000) * rand(1,1000) + 13) );
 
-  if (empty($username)) { array_push($errors, "Username is required"); }
-  if (empty($email)) { array_push($errors, "Email is required"); }
-  if (empty($password_1)) { array_push($errors, "Password is required"); }
+  if (empty($username)) { array_push($errors, $lang['SIGN_IN_ERROR_USERNAME_REQ']); }
+  if (empty($email)) { array_push($errors, $lang['SIGN_UP_ERROR_USER_EXISTS'] ); }
+  if (empty($password_1)) { array_push($errors, $lang['SIGN_IN_ERROR_PASS_REQ']); }
   if ($password_1 != $password_2) {
-	  array_push($errors, "The two passwords do not match");
+	  array_push($errors, $lang['SIGN_UP_ERROR_PASS_MATCH']);
   }
 
   // Check if already the same username/email exists
@@ -24,11 +24,11 @@ if (isset($_POST['reg_user'])) {
   $user = mysqli_fetch_assoc($result);
   if ($user) { 
     if ($user['username'] === $username) {
-      array_push($errors, "Username already exists");
+      array_push($errors, $lang['SIGN_UP_ERROR_USER_EXISTS'] );
     }
 
     if ($user['email'] === $email) {
-      array_push($errors, "email already exists");
+      array_push($errors, $lang['SIGN_UP_ERROR_EMAIL_EXISTS']);
     }
   }
   if ($username == "Admin") {
@@ -43,19 +43,17 @@ if (isset($_POST['reg_user'])) {
   	$query = "INSERT INTO users (user_name, user_email, user_password, user_level, user_date, user_hash , user_verified) VALUES('$username', '$email', '$password', '$user_type', '$time', '$hash', 0)";
     mysqli_query($db, $query);
 
-    $msg = "Thanks for registration, activation link has been sent to $email. Please check your emailbox.";
-
     $from = "noreply@learnqntm.com";
     $to = $email;
     $subject = "Account verification ( learnqntm.com )";
-    $message = "Hello $username,\nthanks for your registration. In order to activate your account please click on this link here: https://learnqntm.com/register/verify.php?email=$email&hash=$hash\n (If the link isnt working, copy and paste the url).
-    If it wasn't you who registered this email, you can ignore it and delete it.";
+    $message = "Hello $username,\nthank you for your registration. In order to activate your account please click on this link here:\nhttps://learnqntm.com/register/verify.php?email=$email&hash=$hash\n (If the link isnt working, copy and paste the url).
+If it wasn't you who registered this email, you can ignore it and delete it.";
     $headers = "From:" . $from;
     $mail = mail($to, $subject, $message, $headers);
     if ($mail == TRUE) {
-      $msg = "An email has been sent to $email, check your mailbox.";
+      $msg = $lang['SIGN_UP_MESSAGE_MAIL'];
     } else {
-        array_push($errors, "Error. Please try again later.");
+        array_push($errors, $lang['SIGN_UP_ERROR']);
     }
   }
 }
@@ -101,12 +99,11 @@ if (isset($_POST['reg_user'])) {
     </ul> 
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html">Learn<b>Qntm</b></a>
+    <a href="../../index2.html">Learn<b>QNTM</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-     <?php echo $msg ?>
       <p class="login-box-msg"><?php echo $lang['SIGN_UP_BOX_MESSAGE'] ?></p>
       <?php  if (count($errors) > 0) : ?>
         <?php foreach ($errors as $error) : ?>

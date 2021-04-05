@@ -16,9 +16,11 @@ $completed = FALSE;
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="LearnQNTM is free elearning platform that focuses on Quantum Computing. It has interactive excersises">
+  <meta name="author" content="Brian Turza">
 
   <title>LearnQuantum</title>
 
@@ -56,7 +58,7 @@ $completed = FALSE;
       <div style="width: 100%; min-height: 35rem" class="card card-primary">
         <div style="margin-left: 3%; margin-right: 3%">
             <br><h2><?php echo $lang['LEARN_TITLE'] ?></h2>
-            <span style="float:right"><strong>Spend time</strong>: 20min</span><br>
+            <p style="float:right"><strong>Spend time</strong>: <span id="minutes-spent">0 minutes</span></p><br>
             <hr>
            <br>
             <div id="accordion">
@@ -96,7 +98,7 @@ $completed = FALSE;
                 <div class="card-header">
                   <a class="card-link chapter" data-toggle="collapse" href="#collapse3">
                   <i class="fas fa-laptop-code"></i> <?php echo $lang['LEARN_CURRIC_PROG'] ?></a>
-                  <a href="programming/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>
+                  <span style="color:grey; float:right"><?php echo $lang['COMMING'] ?></span><!--<a href="programming/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>-->
                   <?php if ($completed) : ?>
                     <span style="float:right; color: green"><?php echo $lang['LEARN_COMPLETED'] ?></span> 
                   <?php endif ?>
@@ -112,7 +114,7 @@ $completed = FALSE;
                 <div class="card-header">
                   <a class="card-link chapter" data-toggle="collapse" href="#collapse4">
                   <i class="fas fa-project-diagram"></i> <?php echo $lang['LEARN_CURRIC_ALGO'] ?></a>
-                  <a href="quantum-algorithms/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>
+                  <span style="color:grey; float:right"><?php echo $lang['COMMING'] ?></span><!--<a href="quantum-algorithms/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>-->
                   <?php if ($completed) : ?>
                     <span style="float:right; color: green"><?php echo $lang['LEARN_COMPLETED'] ?></span> 
                   <?php endif ?>
@@ -128,7 +130,7 @@ $completed = FALSE;
                 <div class="card-header">
                   <a class="card-link chapter" data-toggle="collapse" href="#collapse5">
                   <i class="fas fa-rocket"></i> <?php echo $lang['LEARN_CURRIC_FUTURE'] ?></a>
-                  <a href="future/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>
+                  <span style="color:grey; float:right"><?php echo $lang['COMMING'] ?></span><!--<a href="future/"><i style="float:right; margin-top:-2px" class="fas fa-arrow-alt-circle-right fa-2x test"></i></a>-->
                   <?php if ($completed) : ?>
                     <span style="float:right; color: green"><?php echo $lang['LEARN_COMPLETED'] ?></span> 
                   <?php endif ?>
@@ -163,6 +165,30 @@ $completed = FALSE;
   $(document).ready(function(){
     $('select').niceSelect();
   });
+(function(){ "use strict";
+
+var secondsSpentElement = document.getElementById("seconds-spent");
+var millisecondsSpentElement = document.getElementById("milliseconds-spent");
+var spentElement = document.getElementById("minutes-spent");
+
+requestAnimationFrame(function updateTimeSpent(){
+    var timeNow = performance.now();
+    var spentSeconds = round(timeNow / (1000));
+    var spentMinutes =  round(timeNow / (1000 * 60));
+    var spentHours = round(timeNow / (1000 * 60 * 60));
+    if (spentSeconds >= 60) {
+      spentElement.innerText = round(timeNow / (1000 * 60)) + ' minutes';
+      requestAnimationFrame(updateTimeSpent);
+    }
+    if (spentHours >= 60) {
+      spentElement.innerText = round(timeNow / (1000 * 60 * 60)) + ' hours';
+      requestAnimationFrame(updateTimeSpent);
+    }
+    
+    requestAnimationFrame(updateTimeSpent);
+});
+var performance = window.performance, round = Math.round;
+})();
 </script>
 
 <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>

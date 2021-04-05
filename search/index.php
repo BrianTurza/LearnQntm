@@ -61,6 +61,7 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
 <div style="margin-left: 3%" class="container-fluid">
 <div class="col-md-9">
   <div class="card card-primary">
+    <div style="margin-left:3%; margin-right:3%; margin-top: 2%">
   <?php
 $min_length = 1;
 $query = mysqli_real_escape_string($db, $_GET['query']);
@@ -75,9 +76,9 @@ if(strlen($query) >= $min_length){
 
             $web = $results['problem_id'];
 
-            echo "<a href='localhost/LearnQuantum/forum/topic.php?id=".$web."'><h3>".$results['problem_title']."</h3></a><br>";
+            echo "<a href='https://learnqntm.com/practise/problem/?id=".$web."'><h3>".$results['problem_title']."</h3></a><br>";
 
-            echo "<p>".$results['problem_description']."</p><hr>";
+            echo "<p>".substr($results['problem_description'], 128)."...</p><hr>";
         }
 
     } else { 
@@ -88,7 +89,7 @@ if(strlen($query) >= $min_length){
     
                 $web = $results['user_id'];
     
-                echo "<a href='https://pulzar.org/web/forum/user.php?id=".$web."'><h5>".$results['user_name']."</h5></a><br>";
+                echo "<h5>".$results['user_name']."</h5><br>";
     
                 echo "<p>".$results['topic_description']."</p><hr>";
             } 
@@ -110,7 +111,10 @@ if(strlen($query) >= $min_length){
 } else {
     echo "Minimum length is ".$min_length;
 }
-?>
+?>    
+    </div>
+
+<br>
   </div>
 </div>
 </div>

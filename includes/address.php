@@ -1,1 +1,4 @@
-<?php $addresss = 'https://learnqntm.com/' ?>
+<?php 
+$addresss = 'https://learnqntm.com/';
+global $address;
+?>

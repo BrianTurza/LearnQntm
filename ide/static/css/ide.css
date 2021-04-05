@@ -1,0 +1,21 @@
+.container {
+    max-width: 90%;
+}
+.editor {
+
+    float: left;
+    min-height: 100vh;
+    min-width: 500px;
+    height: 400px;
+    width: 65%;
+    border-radius: 5px;
+}
+#terminal {
+    min-height: calc(100vh - 80px);
+    width: 34.5%;
+    float: left;
+    border-radius: 5px;
+}
+#submit {
+    margin-left: 1rem;
+}
