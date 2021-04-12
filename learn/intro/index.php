@@ -25,7 +25,7 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
   <meta name="description" content="LearnQNTM is free elearning platform that focuses on Quantum Computing. It has interactive excersises">
   <meta name="author" content="Brian Turza">
 
-  <title>QuantumLearn</title>
+  <title><?php echo $lang['PAGE_TITLE'] ?></title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../../vendors/AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
@@ -97,6 +97,22 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
 }
 body {
   color: #525252 !important;
+}
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 99%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
 }
 </style>
 </head>
@@ -182,7 +198,7 @@ if (isset($_POST['submit_code'])) {
     '255' => '11111111',
     '15978' => '11111001101010'
   ];
-  $code = str_replace('\n', "\n", $_POST['code']);
+  $sample_c = $code = str_replace('\n', "\n", $_POST['code']);
   $output= codeExecute($sample_c, $code, 'dec2bin', 'n', $sampleTests);
   $stdout = $output[0];
 }
@@ -200,8 +216,8 @@ if (isset($_POST['submit_code'])) {
                   </textarea>
                 </div>      
             <?php if (isset($stdout)) : ?>
-              <div style="border: 1 px solid black; border-radius: 1%">
-              <?php echo "<span>".$stdout."</span>" ?>
+              <div style="margin-top: 2vh">
+              <?php echo "<pre><code>".$stdout."</code></pre>" ?>
               </div>
             <?php endif ?>
           </form>

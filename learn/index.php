@@ -22,7 +22,7 @@ $completed = FALSE;
   <meta name="description" content="LearnQNTM is free elearning platform that focuses on Quantum Computing. It has interactive excersises">
   <meta name="author" content="Brian Turza">
 
-  <title>LearnQuantum</title>
+  <title><?php echo $lang['PAGE_TITLE'] ?></title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../vendors/AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
@@ -58,7 +58,7 @@ $completed = FALSE;
       <div style="width: 100%; min-height: 35rem" class="card card-primary">
         <div style="margin-left: 3%; margin-right: 3%">
             <br><h2><?php echo $lang['LEARN_TITLE'] ?></h2>
-            <p style="float:right"><strong>Spend time</strong>: <span id="minutes-spent">0 minutes</span></p><br>
+            <!--<p style="float:right"><strong>Spend time</strong>: <span id="minutes-spent">0 minutes</span></p><br>-->
             <hr>
            <br>
             <div id="accordion">
@@ -165,6 +165,7 @@ $completed = FALSE;
   $(document).ready(function(){
     $('select').niceSelect();
   });
+/*
 (function(){ "use strict";
 
 var secondsSpentElement = document.getElementById("seconds-spent");
@@ -188,7 +189,7 @@ requestAnimationFrame(function updateTimeSpent(){
     requestAnimationFrame(updateTimeSpent);
 });
 var performance = window.performance, round = Math.round;
-})();
+})();*/
 </script>
 
 <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>

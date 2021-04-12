@@ -135,9 +135,8 @@ Tu je niekoľko dobrých zdrojov na zlepšenie v matematike: <a target="_blank" 
 //Section 1
 $lang['LEARN_INTRO_TITLE_EXPL'] = 'Čo je Quantum Computing ?';
 $lang['LEARN_INTRO_TEXT_EXPL'] = 'Quantum Computing je oblasť štúdia, ktorá využíva vlastnosti z kvantovej mechaniky na uskutočnenie výpočtových výpočtov. Tieto výpočty sa vykonávajú na <strong> kvantovom počítači </strong>. Jedná sa o počítače, ktoré vykonávajú kvantové výpočty.
-Ako možno viete, klasické počítače ukladajú informácie do bitov. Kvantové počítače však vykonávajú výpočty na základe pravdepodobnosti stavu objektu pred jeho meraním - namiesto iba 1 s alebo 0 s. Tieto kvantové bity sa nazývajú qubits. 
-Quantum computing is a computing paradigm that uses quantum mechanical properties
-of matter in order to preform calculations calculations.
+Ako možno viete, klasické počítače ukladajú informácie do bitov. Kvantové počítače však vykonávajú výpočty na základe pravdepodobnosti stavu objektu pred jeho meraním - namiesto iba 1 s alebo 0 s. Tieto kvantové bity sa nazývajú qubity. 
+Kvantové výpočty sú výpočtovou paradigmou, ktorá využíva kvantové mechanické vlastnosti na vykonávanie výpočtov. 
 Je to
 ';
 

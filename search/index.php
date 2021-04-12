@@ -23,7 +23,7 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>QuantumLearn</title>
+  <title><?php echo $lang['PAGE_TITLE'] ?></title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../vendors/AdminLTE-master/plugins/fontawesome-free/css/all.min.css">

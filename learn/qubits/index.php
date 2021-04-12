@@ -22,7 +22,7 @@ if (isset($_GET['section'])) { $sec = $_GET['section']; }
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>QuantumLearn</title>
+  <title><?php echo $lang['PAGE_TITLE'] ?></title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../../vendors/AdminLTE-master/plugins/fontawesome-free/css/all.min.css">
@@ -86,7 +86,23 @@ body {
                 <h3><?php echo $lang['LEARN_QUBITS_TITLE'] ?></h3>
                 <p style="white-space: pre-wrap;">
 <?php echo $lang['LEARN_QUBITS_TEXT'] ?>
-                </p>
+<?php
+$output = shell_exec(escapeshellcmd('./../../../virtualenv/public_html/ide/3.7/bin/python3 qubit-prob.py'));
+if (isset($_POST['prob'])) {
+  $output = shell_exec(escapeshellcmd('./../../../virtualenv/public_html/ide/3.7/bin/python3 qubit-prob.py'));
+}
+?>
+            <div class="col-9">
+                <form action="" method="post">
+                  <div style="border: 1px solid black; border-radius: 2vh">
+                    <p style="white-space: pre-wrap; margin-left: 4%">
+<?php echo $output ?>
+                    </p>
+                  </div>
+                  <button style="margin-top: 1.5vh" type="submit" name="prob" class="btn btn-primary">Show</button>
+                  
+                </form>
+            </div><br>
               <?php elseif ($sec == 2) : ?>
                 <form action="" method="POST">
                   <?php 
@@ -102,9 +118,8 @@ body {
               <?php elseif ($sec == 3) : ?>
 
                 <h3></h3>
-                <p style="white-space: pre-wrap;">
-                </p>
-              
+                  <p style="white-space: pre-wrap;">
+                </p>       
               <?php elseif ($sec == 4) : ?>
 
                 <h3><?php echo $lang['LEARN_QUBITS_TITLE_CIRCUIT'] ?></h3>
@@ -120,7 +135,7 @@ body {
     </div>
 </div>
 </main>
-<p class="mt-5 mb-3 text-muted text-center">©LearnQuantum <?php echo date("Y") ?></p>
+<p class="mt-5 mb-3 text-muted text-center">©LearnQNTM<?php echo date("Y") ?></p>
 <!-- REQUIRED SCRIPTS -->
 
 <script src="../../vendors/jquery/jquery-3.2.1.min.js"></script>
