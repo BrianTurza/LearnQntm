@@ -13,6 +13,7 @@
 */
 
 // connect to the database
+/*
 $db_host = "localhost";
 $db_user = "learwwlz_admin";
 $db_pass = 'tEst1$.123';
@@ -22,4 +23,5 @@ $db =  mysqli_connect($db_host,$db_user,$db_pass,$db_name);
 if (!$db) {
     die("Connection failed: " . mysqli_error());
 }   
+*/
 ?>
