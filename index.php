@@ -145,7 +145,7 @@ class Quantum:
     
             </textarea>
         </div>
-        <a href="ide/"><button style="margin-top: 1%; width:100px; height: 35px" class="btn btn-success">Run</button></a>
+        <a href="ide/old.php"><button style="margin-top: 1%; width:100px; height: 35px" class="btn btn-success">Run</button></a>
       </div>
     </section>
     <!-- -------- Online IDE section end ------------>          
