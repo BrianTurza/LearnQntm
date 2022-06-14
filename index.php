@@ -42,7 +42,7 @@
 
 
   <main class="side-main">
-    <!-------------------- Hero sm Banner start ------------------=-->      
+   
     <section class="hero-banner mb-30px">
       <div class="container">
         <div class="row">
@@ -61,7 +61,7 @@
         </div>
       </div>
     </section>
-    <!-- ----------------- Hero sm Banner end ------------------=-->
+
 
     <!-- ----------------- Feature section start ------------------=-->  
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -149,8 +149,7 @@ class Quantum:
       </div>
     </section>
     <!-- -------- Online IDE section end ------------>          
-
-    <!-- ---------Solution section start ------------>      
+   
     <section class="section-padding--small bg-magnolia">
       <div class="container">
         <div class="row align-items-center pt-xl-3 pb-xl-5">
@@ -168,8 +167,7 @@ class Quantum:
           </div>
         </div>
       </div>
-    </section>
-    <!-------------------- Solution section end -------------------->      
+    </section> 
 
   </main>
 
