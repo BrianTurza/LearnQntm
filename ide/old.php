@@ -1,7 +1,3 @@
-<?php 
-
-echo shell_exec("python3 -V 2>&1");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,7 +135,7 @@ class Quantum:
                     },
 
                 }, {
-                    greetings: 'Python 3.7 REPL'
+                    greetings: '<?php echo shell_exec("python3 -V 2>&1"); ?>'
                 });
             </script>
         </body>

@@ -78,6 +78,7 @@ $lang['SIGN_CONFIRM_PASS'] = 'Confirm Password';
 $lang['SIGN_UP_GITHUB'] = 'Sign up using Github';
 $lang['SING_UP_ALREADY_ACCOUNT'] = 'Already have an account ?';
 /* Messages */
+if  (!isset($email)) { $email = ''; }
 $lang['SIGN_UP_MESSAGE_SUCCESS'] = 'You are now logged in';
 $lang['SIGN_UP_MESSAGE_MAIL'] = "An email has been sent to $email, check your mailbox.";
 

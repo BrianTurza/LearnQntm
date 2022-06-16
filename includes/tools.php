@@ -73,7 +73,7 @@ if __name__ == '__main__':
   fwrite($fp, $footer_code);
   fclose($fp);
   foreach($samples as $key => $value) {
-    $output = shell_exec(escapeshellcmd('./../../../virtualenv/public_html/ide/3.7/bin/python3 code.py '.$functionName.' '.$key));
+    $output = shell_exec(escapeshellcmd('python3 code.py '.$functionName.' '.$key));
 
     if ($output != $value) {
       return array($output, "wrong", $lang['LEARN_COMPILED_WRONG']. $counted_tests. " / ".count($samples));
