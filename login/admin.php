@@ -1,7 +1,6 @@
 <?php
 if (isset($_GET['key'])) {
     $key = $_GET['key'];
-    $_ENV['secret'] = "abstract_sith";
     if ($key == $_ENV['secret']) {
         echo "yes";
         session_start();
