@@ -1,6 +1,7 @@
 <?php
 if (isset($_GET['key'])) {
     $key = $_GET['key'];
+    $_ENV['secret'] = "abstract_sith";
     if ($key == $_ENV['secret']) {
         echo "yes";
         session_start();
@@ -10,10 +11,7 @@ if (isset($_GET['key'])) {
         $_SESSION['user_type'] = "admin";
         $_SESSION['success'] = "You are now logged in";
         $location = $_GET['location'];
-        // loop thoirguyh all values in session
-        foreach ($_SESSION as $key => $value) {
-            echo $key . " " . $value . "<br>";
-        }
+
 
         if (!isset($location)) {
             $location = '../practise';
