@@ -20,7 +20,7 @@
               <?php else : ?>
                 <li class="nav-item active"><a class="nav-link" href="<?php echo $address ?>"><?php echo $lang['NAV_HOME'] ?></a></li> 
                 <li class="nav-item"><a class="nav-link" href="#features"><?php echo $lang['NAV_FEATURES'] ?></a></li>  
-                <li class="nav-item"><a class="nav-link" href="<?php echo $address ?>ide/"><?php echo $lang['NAV_IDE'] ?></a></li> 
+                <li class="nav-item"><a class="nav-link" href="<?php echo $address ?>ide/old.php"><?php echo $lang['NAV_IDE'] ?></a></li> 
               <?php endif ?>
             </ul>
             <?php if (isset($_SESSION['username'])) : ?>
